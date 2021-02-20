@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+    - "./html:/usr/share/nginx/html"
+    image: nginx
+    networks:
+      - net-test
+  web2:
+    container_name: nginx2
+    ports:
+      - "8081:80"
+    volumes:
+      - "./html:/usr/share/nginx/html"
+    image: httpd
+    networks:
+      - net-test
+networks:
+  net-test:
